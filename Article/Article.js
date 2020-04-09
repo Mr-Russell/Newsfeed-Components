@@ -94,6 +94,15 @@ const data = [
     secondParagraph: `There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be dispatched. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? `,
 
     thirdParagraph: `Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those who are more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror.`
+  },
+  {
+    title: 'What is Wrong With Society?',
+    date: 'Jun 24th, 2015',
+    firstParagraph: `What is it about society that disappoints me so much? Oh I don't know, is it that we collectively thought Steve Jobs was a great man even when we knew he made billions off the backs of children?`,
+    
+    secondParagraph: `Or maybe it's that it feels like all our heroes are counterfeit; the world itself's just one big hoax. Spamming each other with our burning commentary of bullshit masquerading as insight, our social media faking as intimacy. Or is it that we voted for this? Not with our rigged elections, but with our things, our property, our money.`,
+
+    thirdParagraph: `I'm not saying anything new. We all know why we do this, not because Hunger Games books makes us happy but because we wanna be sedated. Because it's painful not to pretend, because we're cowards.`
   }
 ];
 
