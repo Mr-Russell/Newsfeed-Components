@@ -85,30 +85,88 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Remember Remember The 5th of November',
+    date: 'Nov 5th, 2005',
+    firstParagraph: `I do, like many of you, appreciate the comforts of every day routine - the security of the familiar, the tranquility of repetition. I enjoy them as much as any bloke. But in the spirit of commemoration, thereby those important events of the past usually associated with someone's death or the end of some awful bloody struggle, a celebration of a nice holiday, I thought we could mark this November the 5th, a day that is sadly no longer remembered, by taking some time out of our daily lives to sit down and have a little chat.`,
+    
+    secondParagraph: `There are of course those who do not want us to speak. I suspect even now, orders are being shouted into telephones, and men with guns will soon be dispatched. Why? Because while the truncheon may be used in lieu of conversation, words will always retain their power. Words offer the means to meaning, and for those who will listen, the enunciation of truth. And the truth is, there is something terribly wrong with this country, isn't there? `,
+
+    thirdParagraph: `Cruelty and injustice, intolerance and oppression. And where once you had the freedom to object, to think and speak as you saw fit, you now have censors and systems of surveillance coercing your conformity and soliciting your submission. How did this happen? Who's to blame? Well certainly there are those who are more responsible than others, and they will be held accountable, but again truth be told, if you're looking for the guilty, you need only look into a mirror.`
+  },
+  {
+    title: 'What is Wrong With Society?',
+    date: 'Jun 24th, 2015',
+    firstParagraph: `What is it about society that disappoints me so much? Oh I don't know, is it that we collectively thought Steve Jobs was a great man even when we knew he made billions off the backs of children?`,
+    
+    secondParagraph: `Or maybe it's that it feels like all our heroes are counterfeit; the world itself's just one big hoax. Spamming each other with our burning commentary of bullshit masquerading as insight, our social media faking as intimacy. Or is it that we voted for this? Not with our rigged elections, but with our things, our property, our money.`,
+
+    thirdParagraph: `I'm not saying anything new. We all know why we do this, not because Hunger Games books makes us happy but because we wanna be sedated. Because it's painful not to pretend, because we're cowards.`
   }
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+// Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+//   <div class="article">
+//     <h2>{title of the article}</h2>
+//     <p class="date">{date of the article}</p>
 
-    {three separate paragraph elements}
+//     {three separate paragraph elements}
 
-    <span class='expandButton'></span>
-  </div>
+//     <span class='expandButton'></span>
+//   </div>
 
-  Hint: You will need to use createElement more than once here!
+const articleList = document.querySelector('.articles');
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+//   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+function createArticle({title, date, firstParagraph, secondParagraph, thirdParagraph }){
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  //   Hint: You will need to use createElement more than once here!
+  const article = document.createElement('div');
+  const heading = document.createElement('h2');
+  const day = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const expand = document.createElement('span');
 
-  Step 3: return the entire component.
+  article.classList.add('article');
+  day.classList.add('date');
+  expand.classList.add('expandButton');
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  article.appendChild(heading);
+  article.appendChild(day);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expand);
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+  heading.textContent = title;
+  day.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  expand.textContent = 'Article Content';
 
-*/
+
+//   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  expand.addEventListener('click', (event) =>{
+    article.classList.toggle('article-open');
+  });
+//   Step 3: return the entire component.
+  return article;
+}
+//   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+const articleArray = data.map(articleChunk =>{
+  return createArticle(articleChunk);
+});
+
+articleArray.forEach(singleArticle =>{
+  articleList.appendChild(singleArticle);
+});
+
+
+//   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+
+
